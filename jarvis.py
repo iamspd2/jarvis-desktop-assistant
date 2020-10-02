@@ -7,6 +7,9 @@ import smtplib
 import random as r
 import os
 
+from dotenv import load_dotenv
+load_dotenv()
+
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 
@@ -52,8 +55,10 @@ def sendEmail(to, content):
     server = smtplib.SMTP("smtp.gmail.com", 587)
     server.ehlo()
     server.starttls()
-    server.login('jncna222@gmail.com', '66ChOdA66')
-    server.sendmail('jncna222@gmail.com', to, content)
+    EMAIL = os.getenv("EMAIL")
+    PASSWORD = os.getenv("PASSWORD")
+    server.login(EMAIL, PASSWORD)
+    server.sendmail(EMAIL, to, content)
     server.close()
 
 if __name__ == "__main__":
