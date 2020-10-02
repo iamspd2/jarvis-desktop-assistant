@@ -4,6 +4,7 @@ import datetime
 import wikipedia
 import webbrowser
 import smtplib
+import random as r
 import os
 
 engine = pyttsx3.init('sapi5')
@@ -79,8 +80,9 @@ if __name__ == "__main__":
         elif 'play music' in query:
             music_dir = 'D:\\songs'
             songs = os.listdir(music_dir)
-            print(songs)
-            os.startfile(os.path.join(music_dir, songs[6]))
+            songs_list = list(songs)
+            random_song = r.choice(songs_list)
+            os.startfile(os.path.join(music_dir, random_song))
 
         elif 'the time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")
