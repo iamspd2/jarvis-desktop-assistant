@@ -80,4 +80,15 @@ if __name__ == "__main__":
         elif 'open code' in query:
             path = 'C:\\Users\\bests\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe'
             os.startfile(path)
-            
+
+        elif 'send email' in query:
+            try:
+                speak("What should I send?")
+                content = takeCommand()
+                to = "bestspd6@gmail.com"
+                sendEmail(to, content)
+                speak("The email has been sent sir.")
+            except Exception as e:
+                print(e)
+                speak("There seems to be a problem sir.")
+                
