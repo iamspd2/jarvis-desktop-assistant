@@ -78,3 +78,6 @@ if __name__ == "__main__":
             speak(f"Sir, the time is {strTime}\n")
 
         elif 'open code' in query:
+            path = 'C:\\Users\\bests\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe'
+            os.startfile(path)
+            
