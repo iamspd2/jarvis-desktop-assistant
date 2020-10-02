@@ -3,6 +3,7 @@ import speech_recognition as sr
 import datetime
 import wikipedia
 import webbrowser
+import smtplib
 import os
 
 engine = pyttsx3.init('sapi5')
@@ -46,6 +47,14 @@ def takeCommand():
 
     return query
 
+def sendEmail(to, content):
+    server = smtplib.SMTP("smtp.gmail.com", 587)
+    server.ehlo()
+    server.starttls()
+    server.login('jncna222@gmail.com', '66ChOdA66')
+    server.sendmail('jncna222@gmail.com', to, content)
+    server.close()
+
 if __name__ == "__main__":
     # speak("test")
     wishMe()
@@ -71,7 +80,7 @@ if __name__ == "__main__":
             music_dir = 'D:\\songs'
             songs = os.listdir(music_dir)
             print(songs)
-            os.startfile(os.path.join(music_dir, songs[0]))
+            os.startfile(os.path.join(music_dir, songs[6]))
 
         elif 'the time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")
@@ -91,4 +100,3 @@ if __name__ == "__main__":
             except Exception as e:
                 print(e)
                 speak("There seems to be a problem sir.")
-                
