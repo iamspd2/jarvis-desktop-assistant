@@ -81,6 +81,9 @@ if __name__ == "__main__":
         
         elif 'open google' in query:
             webbrowser.open('google.com')
+
+        elif 'open github' in query:
+            webbrowser.open('github.com')
         
         elif 'play music' in query:
             music_dir = 'D:\\songs'
